@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Vim的编译安装及使用入门 | 无眠呓语</title><meta name="author" content="无眠呓语"><meta name="copyright" content="无眠呓语"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vim文本编辑器，是由Vi发展演变过来的文本编辑器，因其具有使用简单、功能强大等特点，是Linux 众多发行版的默认文本编辑器。如果你喜欢，你甚至可以把它配置成一个IDE  编译安装 此处安装环境以AlmaLinux9为例  123456789101112131415# 编译环境安装sudo dnf install git gcc ncurses-devel -y# 克隆源代码git clone">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim的编译安装及使用入门">
+<meta property="og:url" content="https://baby195lxl.github.io/posts/58ea93b5.html">
+<meta property="og:site_name" content="无眠呓语">
+<meta property="og:description" content="Vim文本编辑器，是由Vi发展演变过来的文本编辑器，因其具有使用简单、功能强大等特点，是Linux 众多发行版的默认文本编辑器。如果你喜欢，你甚至可以把它配置成一个IDE  编译安装 此处安装环境以AlmaLinux9为例  123456789101112131415# 编译环境安装sudo dnf install git gcc ncurses-devel -y# 克隆源代码git clone">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2b1dm3hiulonmzuhm2f4.png">
+<meta property="article:published_time" content="2022-09-26T21:56:30.000Z">
+<meta property="article:modified_time" content="2025-12-18T06:53:57.248Z">
+<meta property="article:author" content="无眠呓语">
+<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="备忘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2b1dm3hiulonmzuhm2f4.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vim的编译安装及使用入门",
+  "url": "https://baby195lxl.github.io/posts/58ea93b5.html",
+  "image": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2b1dm3hiulonmzuhm2f4.png",
+  "datePublished": "2022-09-26T21:56:30.000Z",
+  "dateModified": "2025-12-18T06:53:57.248Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无眠呓语",
+      "url": "https://baby195lxl.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://baby195lxl.github.io/posts/58ea93b5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vim的编译安装及使用入门',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2b1dm3hiulonmzuhm2f4.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">无眠呓语</span></a><a class="nav-page-title" href="/"><span class="site-name">Vim的编译安装及使用入门</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Vim的编译安装及使用入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-09-26T21:56:30.000Z" title="发表于 2022-09-26 21:56:30">2022-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-12-18 06:53:57&quot;}" hidden></div><div class="note icon-padding flat"><i class="note-icon fa-solid fa-laptop-code"></i><p>Vim文本编辑器，是由Vi发展演变过来的文本编辑器，因其具有使用简单、功能强大等特点，是Linux 众多发行版的默认文本编辑器。如果你喜欢，你甚至可以把它配置成一个IDE</p>
+</div>
+<h2 id="编译安装">编译安装</h2>
+<div class="note info modern"><p>此处安装环境以AlmaLinux9为例</p>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译环境安装</span></span><br><span class="line">sudo dnf install git gcc ncurses-devel -y</span><br><span class="line"><span class="comment"># 克隆源代码</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vim/vim.git</span><br><span class="line"><span class="comment"># 编译安装(逐步执行)</span></span><br><span class="line"><span class="built_in">cd</span> vim/</span><br><span class="line">./configure</span><br><span class="line">make -j8</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">./vim</span><br><span class="line"><span class="comment"># 替换原有版本</span></span><br><span class="line">sudo dnf remove vim -y</span><br><span class="line">sudo <span class="built_in">rm</span> /usr/bin/vim</span><br><span class="line">sudo <span class="built_in">cp</span> ./vim /usr/bin/</span><br></pre></td></tr></table></figure>
+<h2 id="简单使用入门">简单使用入门</h2>
+<h3 id="跳转操作">跳转操作</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">上：<span class="keyword">k</span>    下：<span class="keyword">j</span>    左：h    右：<span class="keyword">l</span></span><br><span class="line"></span><br><span class="line">滚动翻页：Ctrl+<span class="keyword">e</span>    向下翻页：Ctrl+<span class="keyword">f</span>    向上翻页：Ctrl+<span class="keyword">b</span>    向下半页：Ctrl+d    向上半页：Ctrl+<span class="keyword">u</span></span><br><span class="line"></span><br><span class="line">跳转至下一个单词或标点首位：<span class="keyword">w</span>    跳转至下一个单词或标点末位：<span class="keyword">e</span></span><br><span class="line">跳转至上一个单词或标点首位：<span class="keyword">b</span></span><br><span class="line">跳转至行首：<span class="number">0</span>     跳转至行尾：$    跳转至本行第一个非空字符：^</span><br><span class="line">跳转至文首：gg    跳转至文尾：G</span><br><span class="line">跳转至n行：ngg/nG/:n</span><br><span class="line"></span><br><span class="line">寻找光标所在行的<span class="keyword">x</span>字符：fx    重复上一个<span class="keyword">f</span>指令：;</span><br><span class="line"></span><br><span class="line">向上寻找光标位置单词：*      向下寻找光标位置单词：#</span><br></pre></td></tr></table></figure>
+<h3 id="复制操作、删除操作">复制操作、删除操作</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">删除光标所在行：dd    删除光标至行尾(不包括回车)：d$    删除光标所在单词：dw</span><br><span class="line">删除n行到<span class="keyword">xn</span>行：:n,xnd</span><br><span class="line"></span><br><span class="line">复制光标所在行：yy    复制光标至行尾(不包括回车)：<span class="keyword">y</span>$    复制光标及以下n行：nyy</span><br><span class="line"></span><br><span class="line">粘贴剪切板内容部至光标后：<span class="keyword">p</span>    粘贴剪切板内容部至光标前：<span class="keyword">P</span></span><br><span class="line"></span><br><span class="line">撤销操作：<span class="keyword">u</span>    前进操作：Ctrl+r</span><br></pre></td></tr></table></figure>
+<h3 id="插入模式">插入模式</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在当前光标处插入：i    在当前光标后插入：<span class="keyword">a</span></span><br><span class="line">在当前行首处插入：I    在当前行末处插入：A</span><br><span class="line">在当前行下下新增一行：<span class="keyword">o</span>    在当前行上新增一行：O</span><br></pre></td></tr></table></figure>
+<h3 id="查找替换操作">查找替换操作</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">向后搜索字符串：/字符串    向前搜索字符串：?字符串</span><br><span class="line">匹配下一个搜索字符串：n    匹配上一个搜索字符串：<span class="keyword">N</span></span><br></pre></td></tr></table></figure>
+<h3 id="保存退出操作">保存退出操作</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">保存：:<span class="keyword">w</span></span><br><span class="line">退出：:q     强制退出(放弃修改)：:q!</span><br><span class="line">保存并退出：:<span class="keyword">wq</span>/:<span class="keyword">x</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://baby195lxl.github.io">无眠呓语</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://baby195lxl.github.io/posts/58ea93b5.html">https://baby195lxl.github.io/posts/58ea93b5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://baby195lxl.github.io" target="_blank">无眠呓语</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%87%E5%BF%98/">备忘</a><a class="post-meta__tags" href="/tags/Vim/">Vim</a></div><div class="post-share"><div class="social-share" data-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2b1dm3hiulonmzuhm2f4.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/posts/fcf74e02.html" title="将Vim配置为Rust的简易IDE"><img class="cover" src="https://www.rust-lang.org/static/images/rust-social-wide.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">将Vim配置为Rust的简易IDE</div></div></div></a><a class="pagination-related  no-desc" href="/posts/o7c9i2z0.html" title="AlmaLinux初上手"><img class="cover" src="https://2022.allthingsopen.org/wp-content/uploads/2022/07/AlmaLinux.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AlmaLinux初上手</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/fcf74e02.html" title="将Vim配置为Rust的简易IDE"><img class="cover" src="https://www.rust-lang.org/static/images/rust-social-wide.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-30</div><div class="info-item-2">将Vim配置为Rust的简易IDE</div></div></div></a><a class="pagination-related no-desc" href="/posts/o7c9i2z0.html" title="AlmaLinux初上手"><img class="cover" src="https://2022.allthingsopen.org/wp-content/uploads/2022/07/AlmaLinux.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="info-item-2">AlmaLinux初上手</div></div></div></a><a class="pagination-related no-desc" href="/posts/56c3d658.html" title="使用Python操作Docker"><img class="cover" src="http://5b0988e595225.cdn.sohucs.com/images/20180617/183267f51d414d658bd907e8d6ac293f.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-16</div><div class="info-item-2">使用Python操作Docker</div></div></div></a><a class="pagination-related no-desc" href="/posts/g1x6g2e9.html" title="使用systemd管理Podman容器"><img class="cover" src="https://linuxhandbook.com/content/images/size/w1200/format/avif/2022/08/podman.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-26</div><div class="info-item-2">使用systemd管理Podman容器</div></div></div></a><a class="pagination-related no-desc" href="/posts/5c9a9528.html" title="Requests库常见用法"><img class="cover" src="https://nitratine.net/posts/python-requests-tutorial/feature.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-21</div><div class="info-item-2">Requests库常见用法</div></div></div></a><a class="pagination-related no-desc" href="/posts/l4j4c8hb.html" title="使用Podman构建Rust项目"><img class="cover" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rye3eqP0k0kSX_jSxURcmg.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-08</div><div class="info-item-2">使用Podman构建Rust项目</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无眠呓语</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/baby195lxl"><i class="fab fa-github"></i><span>My Repositories</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎━(*｀∀´*)ノ亻!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">编译安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8"><span class="toc-number">2.</span> <span class="toc-text">简单使用入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">跳转操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%93%8D%E4%BD%9C%E3%80%81%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text">复制操作、删除操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2%E6%93%8D%E4%BD%9C"><span class="toc-number">2.4.</span> <span class="toc-text">查找替换操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA%E6%93%8D%E4%BD%9C"><span class="toc-number">2.5.</span> <span class="toc-text">保存退出操作</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/g1x6g2e9.html" title="使用systemd管理Podman容器"><img src="https://linuxhandbook.com/content/images/size/w1200/format/avif/2022/08/podman.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用systemd管理Podman容器"/></a><div class="content"><a class="title" href="/posts/g1x6g2e9.html" title="使用systemd管理Podman容器">使用systemd管理Podman容器</a><time datetime="2025-11-26T12:17:37.000Z" title="发表于 2025-11-26 12:17:37">2025-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f793f9ae.html" title="关于贝叶斯定理的一点理解"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Thomas_Bayes.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于贝叶斯定理的一点理解"/></a><div class="content"><a class="title" href="/posts/f793f9ae.html" title="关于贝叶斯定理的一点理解">关于贝叶斯定理的一点理解</a><time datetime="2025-11-11T12:17:37.000Z" title="发表于 2025-11-11 12:17:37">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/y9w6v7b6.html" title="Rust学习笔记：内部可变性"><img src="https://tms-outsource.com/blog/wp-content/uploads/2024/04/what-is-rust-used-for.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust学习笔记：内部可变性"/></a><div class="content"><a class="title" href="/posts/y9w6v7b6.html" title="Rust学习笔记：内部可变性">Rust学习笔记：内部可变性</a><time datetime="2025-03-29T20:11:37.000Z" title="发表于 2025-03-29 20:11:37">2025-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/i5v2u2.html" title="Rust学习笔记：函数作为参数"><img src="https://tms-outsource.com/blog/wp-content/uploads/2024/04/what-is-rust-used-for.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust学习笔记：函数作为参数"/></a><div class="content"><a class="title" href="/posts/i5v2u2.html" title="Rust学习笔记：函数作为参数">Rust学习笔记：函数作为参数</a><time datetime="2024-08-22T14:17:37.000Z" title="发表于 2024-08-22 14:17:37">2024-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a7bp87o2.html" title="Rust学习笔记：错误处理"><img src="https://tms-outsource.com/blog/wp-content/uploads/2024/04/what-is-rust-used-for.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust学习笔记：错误处理"/></a><div class="content"><a class="title" href="/posts/a7bp87o2.html" title="Rust学习笔记：错误处理">Rust学习笔记：错误处理</a><time datetime="2024-05-26T14:17:37.000Z" title="发表于 2024-05-26 14:17:37">2024-05-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2025 By 无眠呓语</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text">luoxiaolinn@qq.com</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入关键字" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
