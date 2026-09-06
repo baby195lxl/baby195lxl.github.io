@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于图形维度的一点理解 | 无眠呓语</title><meta name="author" content="无眠呓语"><meta name="copyright" content="无眠呓语"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="维度的概念 拓扑维度 在我们一般的理解中，维数是自然数，即：点是0维、线是1维、面是2维、体是3维，这是我们直觉中所认识拓扑维数。拓扑维数由图形“本征的”连通方式所决定，拉伸和变形不能改变维数。比如一条弯曲得很厉害的曲线，仍然是一维的。 分形的维数 怎么去测定国家的海岸线的长度？ 想象一下：用很多把长度2m的尺子沿着我国的海岸线首尾相连的摆放，那么我们可以得到一个值。然后，再换成很多1m的尺子首位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于图形维度的一点理解">
+<meta property="og:url" content="https://baby195lxl.github.io/posts/y3p6d9b6.html">
+<meta property="og:site_name" content="无眠呓语">
+<meta property="og:description" content="维度的概念 拓扑维度 在我们一般的理解中，维数是自然数，即：点是0维、线是1维、面是2维、体是3维，这是我们直觉中所认识拓扑维数。拓扑维数由图形“本征的”连通方式所决定，拉伸和变形不能改变维数。比如一条弯曲得很厉害的曲线，仍然是一维的。 分形的维数 怎么去测定国家的海岸线的长度？ 想象一下：用很多把长度2m的尺子沿着我国的海岸线首尾相连的摆放，那么我们可以得到一个值。然后，再换成很多1m的尺子首位">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif">
+<meta property="article:published_time" content="2026-08-19T12:17:37.000Z">
+<meta property="article:modified_time" content="2026-09-06T13:22:14.568Z">
+<meta property="article:author" content="无眠呓语">
+<meta property="article:tag" content="分形几何">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "关于图形维度的一点理解",
+  "url": "https://baby195lxl.github.io/posts/y3p6d9b6.html",
+  "image": "https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif",
+  "datePublished": "2026-08-19T12:17:37.000Z",
+  "dateModified": "2026-09-06T13:22:14.568Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "无眠呓语",
+      "url": "https://baby195lxl.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://baby195lxl.github.io/posts/y3p6d9b6.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '关于图形维度的一点理解',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">无眠呓语</span></a><a class="nav-page-title" href="/"><span class="site-name">关于图形维度的一点理解</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">关于图形维度的一点理解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-08-19T12:17:37.000Z" title="发表于 2026-08-19 12:17:37">2026-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B4%E8%B6%A3/">兴趣</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-09-06 13:22:14&quot;}" hidden></div><h2 id="维度的概念">维度的概念</h2>
+<h3 id="拓扑维度">拓扑维度</h3>
+<p>在我们一般的理解中，维数是自然数，即：<code>点是0维、线是1维、面是2维、体是3维</code>，这是我们直觉中所认识拓扑维数。拓扑维数由图形“本征的”连通方式所决定，拉伸和变形不能改变维数。比如一条弯曲得很厉害的曲线，仍然是一维的。</p>
+<h3 id="分形的维数">分形的维数</h3>
+<h4 id="怎么去测定国家的海岸线的长度？">怎么去测定国家的海岸线的长度？</h4>
+<p>想象一下：用很多把长度2m的尺子沿着我国的海岸线首尾相连的摆放，那么我们可以得到一个值。然后，再换成很多1m的尺子首位相连，如果读者有细心的观察过的话，可以很轻松的得到用1m的尺子得到的海岸线长度肯定会大于2m尺子测出的长度，而如果我们把尺子的长度缩减到<code>极限小</code>，则海岸线的长度会趋于<code>无穷大</code>。这就是分形的重要思想来源，也就是著名的<code>海岸线悖论</code>(Coastline Paradox)。</p>
+<h4 id="海岸线悖论的公式化表达">海岸线悖论的公式化表达</h4>
+<p>设用长度为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>的尺子来测量，则需要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">N(\varepsilon)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span></span></span></span>段，总长度为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo><mo>=</mo><mi>N</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">L(\varepsilon)=N(\varepsilon)⋅\varepsilon
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span></span></p>
+<p>对于分形海岸线，覆盖所需的段数按照：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo><mo>∝</mo><msup><mi>ε</mi><mrow><mo>−</mo><mi>D</mi></mrow></msup></mrow><annotation encoding="application/x-tex">N(\varepsilon) \propto \varepsilon^{-D}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8913em;"></span><span class="mord"><span class="mord mathnormal">ε</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.0278em;">D</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>则总海岸线长度：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo><mo>∝</mo><msup><mi>ε</mi><mrow><mn>1</mn><mo>−</mo><mi>D</mi></mrow></msup></mrow><annotation encoding="application/x-tex">L(\varepsilon) \propto \varepsilon^{1-D}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8913em;"></span><span class="mord"><span class="mord mathnormal">ε</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.0278em;">D</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>在这个公式中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mtext>＞</mtext><mn>1</mn></mrow><annotation encoding="application/x-tex">D ＞ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mord cjk_fallback">＞</span><span class="mord">1</span></span></span></span>(<code>稍后我们会知道为什么是大于1的</code>)，指数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>D</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1−D &lt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>，于是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">\varepsilon \to \infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>时<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>ε</mi><mo stretchy="false">)</mo><mo>→</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">L(\varepsilon) \to \infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>，这就是<code>尺子越短、长度越长、最终发散</code>的数学机制。</p>
+<h4 id="分形维数的现实意义">分形维数的现实意义</h4>
+<p>分形维数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>的现实意义，不是告诉你它有多长，而是告诉你<code>这个物体</code>有多<code>占地方</code>、有多<code>粗糙</code>、有多<code>高效</code>。它是一个<code>粗糙度指数</code>和<code>空间填充效率指数</code>，这么说可能理解起来略微有些抽象(<code>数学中的绝大多数概念都很抽象，因为它们需要无歧义的定义和解释事物</code>)，那我们就举几个现实的例子来说明分形维数的作用吧</p>
+<ul>
+<li>人的血管：人体的肺和血管网络，分形维数大约在2.7~2.9之间，如果肺和血管的分形维数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，那么肺的体积再大，氧气交换面积也不够人活过1分钟的。因为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>值越接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>，意味着这个器官在有限的胸腔/头颅空间内，把<code>表面积拓展到了极致</code>。由此，人类可以通过检测视网膜血管的分形维度变化，来早期诊断糖尿病和高血压——因为病变会让血管变扭曲，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>值也会因此显著改变。</li>
+<li>药物的比表面积：对于药物研发来说，药物的溶解速度是一个非常重要的指标，相同质量下，分形维数越高的药物颗粒，代表着表面坑洼越多，真实表面积越大。计算药物的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>值，就能直接换算出它的有效比表面积。比表面积越大，药片进入人体溶解就越快，药效起效就越迅速。所以，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>值决定了一颗药是<code>秒溶</code>还是<code>缓释</code>。</li>
+</ul>
+<h2 id="维数的计算">维数的计算</h2>
+<p>既然分形维数这么重要，那么应该怎么计算一个图形的维数呢？</p>
+<h3 id="相似性维数">相似性维数</h3>
+<p>我们先看看规则的分形图形，比如下面的科赫雪花：<br>
+<img src="https://pic1.zhimg.com/v2-3fccc6984a7ba542765390e4b587e1c2_1440w.png" alt="科赫雪花"><br>
+对于科赫雪花，我们可以采用以下方法计算出它的维数</p>
+<ul>
+<li>把一条线段分成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>等份(缩放比例<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">r = 1/3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>)</li>
+<li>但生成下一级时,变成了<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>条小线段(数量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">N=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>)，于是维数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span>等于：</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>D</mi><mo>=</mo><mfrac><mrow><mi>log</mi><mo>⁡</mo><mn>3</mn></mrow><mrow><mi>log</mi><mo>⁡</mo><mn>4</mn></mrow></mfrac><mo>≈</mo><mn>1.2618</mn></mrow><annotation encoding="application/x-tex">D=\frac{\log 3}{\log 4}\approx 1.2618
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.2618</span></span></span></span></span></p>
+<p>这个计算方法就叫<code>相似性维数法</code>(Similarity Dimension)。它<code>只适用于严格自相似的图形</code>(如科赫雪花、谢尔宾斯基金字塔等)，它极其简单，只需要数“分成几份”和“变成几份”即可。</p>
+<h3 id="盒维数-网格覆盖法">盒维数(网格覆盖法)</h3>
+<p>施工中…</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://baby195lxl.github.io">无眠呓语</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://baby195lxl.github.io/posts/y3p6d9b6.html">https://baby195lxl.github.io/posts/y3p6d9b6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://baby195lxl.github.io" target="_blank">无眠呓语</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%BD%A2%E5%87%A0%E4%BD%95/">分形几何</a></div><div class="post-share"><div class="social-share" data-image="https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/posts/9cgc9887.html" title="Playwright安装及使用入门"><img class="cover" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*YFHz2wVIqtKWW3sE.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Playwright安装及使用入门</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/posts/k9y6o0z4.html" title="关于NSGA-II算法的一点理解"><img class="cover" src="https://i0.wp.com/4cda.com/wp-content/uploads/2026/02/image.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-31</div><div class="info-item-2">关于NSGA-II算法的一点理解</div></div></div></a><a class="pagination-related no-desc" href="/posts/f793f9ae.html" title="关于贝叶斯定理的一点理解"><img class="cover" src="https://www.yangmifeng.com/uploads/images/20231201/a4f7bee186aed5afac87126f9390dd31.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-11</div><div class="info-item-2">关于贝叶斯定理的一点理解</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">无眠呓语</div><div class="author-info-description">个人博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/baby195lxl"><i class="fab fa-github"></i><span>My Repositories</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎━(*｀∀´*)ノ亻!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E5%BA%A6%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">维度的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E7%BB%B4%E5%BA%A6"><span class="toc-number">1.1.</span> <span class="toc-text">拓扑维度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%BD%A2%E7%9A%84%E7%BB%B4%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">分形的维数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%8E%BB%E6%B5%8B%E5%AE%9A%E5%9B%BD%E5%AE%B6%E7%9A%84%E6%B5%B7%E5%B2%B8%E7%BA%BF%E7%9A%84%E9%95%BF%E5%BA%A6%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">怎么去测定国家的海岸线的长度？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%B7%E5%B2%B8%E7%BA%BF%E6%82%96%E8%AE%BA%E7%9A%84%E5%85%AC%E5%BC%8F%E5%8C%96%E8%A1%A8%E8%BE%BE"><span class="toc-number">1.2.2.</span> <span class="toc-text">海岸线悖论的公式化表达</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%BD%A2%E7%BB%B4%E6%95%B0%E7%9A%84%E7%8E%B0%E5%AE%9E%E6%84%8F%E4%B9%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">分形维数的现实意义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">维数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E4%BC%BC%E6%80%A7%E7%BB%B4%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">相似性维数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%92%E7%BB%B4%E6%95%B0-%E7%BD%91%E6%A0%BC%E8%A6%86%E7%9B%96%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">盒维数(网格覆盖法)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/y3p6d9b6.html" title="关于图形维度的一点理解"><img src="https://www.d-maps.com/m/europa/uk/royaumeuni/royaumeuni01.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于图形维度的一点理解"/></a><div class="content"><a class="title" href="/posts/y3p6d9b6.html" title="关于图形维度的一点理解">关于图形维度的一点理解</a><time datetime="2026-08-19T12:17:37.000Z" title="发表于 2026-08-19 12:17:37">2026-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9cgc9887.html" title="Playwright安装及使用入门"><img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*YFHz2wVIqtKWW3sE.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Playwright安装及使用入门"/></a><div class="content"><a class="title" href="/posts/9cgc9887.html" title="Playwright安装及使用入门">Playwright安装及使用入门</a><time datetime="2026-07-07T15:17:21.000Z" title="发表于 2026-07-07 15:17:21">2026-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/k9y6o0z4.html" title="关于NSGA-II算法的一点理解"><img src="https://i0.wp.com/4cda.com/wp-content/uploads/2026/02/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于NSGA-II算法的一点理解"/></a><div class="content"><a class="title" href="/posts/k9y6o0z4.html" title="关于NSGA-II算法的一点理解">关于NSGA-II算法的一点理解</a><time datetime="2026-05-31T12:17:37.000Z" title="发表于 2026-05-31 12:17:37">2026-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a7b3u1c8.html" title="编译安装Neovim"><img src="https://mattermost.com/wp-content/uploads/2022/02/02_Neovim@2x-2048x1072.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译安装Neovim"/></a><div class="content"><a class="title" href="/posts/a7b3u1c8.html" title="编译安装Neovim">编译安装Neovim</a><time datetime="2026-03-10T12:17:37.000Z" title="发表于 2026-03-10 12:17:37">2026-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/g1x6g2e9.html" title="使用systemd管理Podman容器"><img src="https://linuxhandbook.com/content/images/size/w1200/format/avif/2022/08/podman.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用systemd管理Podman容器"/></a><div class="content"><a class="title" href="/posts/g1x6g2e9.html" title="使用systemd管理Podman容器">使用systemd管理Podman容器</a><time datetime="2025-11-26T12:17:37.000Z" title="发表于 2025-11-26 12:17:37">2025-11-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By 无眠呓语</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text">luoxiaolinn@qq.com</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入关键字" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
